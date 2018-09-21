@@ -12,6 +12,7 @@ from core.utils.config_utils import ConfigUtils
 from core.utils.mysql_utils import MysqlUtils
 from core.utils.logger_utils import LoggerUtils
 from core.utils.ftp_utils import FTPUtils
+from core.utils.csv_utils import CSV_Utils
 
 const = ConfigUtils('../conf/config.ini')
 REDIS_HOST = const.get_value('redis', 'host')
@@ -39,20 +40,20 @@ def start():
 
     #测试mysql_utils类中的方法
     mysql_conn = MysqlUtils(MYSQL_HOST, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_PORT, MYSQL_DATABASE)
-    sql = 'select * from sys_user'
+    sql = "select * from sys_user"
     a = mysql_conn.execute_query(sql)
     logger.info(a)
 
-    logger.info('hello')
-
-
-    #ftp测试
+    #ftp工具类测试
     try:
         ftp = FTPUtils(FTP_HOST, FTP_PORT, FTP_USERNAME, FTP_PASSWORD)
         os.chdir("d:/")
         ftp.upload_file('centos7_init.sh', FTP_DIR)
     except Exception as e:
         logger.info(e)
-    logger.info("哈哈")
-    pass
 
+    #csv工具类使用测试
+    csv = CSV_Utils()
+    os.chdir("d:/")
+    csv.export_sql_result('result.csv', a)
+    pass

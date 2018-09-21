@@ -36,6 +36,7 @@ class MysqlUtils:
             cursor = conn.cursor(cursor=pymysql.cursors.DictCursor)
             cursor.execute(sql)
             data = cursor.fetchall()
+            # data = list(data)
             conn.commit()
             cursor.close()  # 关闭游标
             conn.close()  # 释放数据库资源
@@ -61,4 +62,3 @@ class MysqlUtils:
             conn.close()
         except Exception as e:
             print(e)
-
