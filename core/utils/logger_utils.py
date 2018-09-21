@@ -13,14 +13,13 @@ import logging.handlers
 
 class LoggerUtils:
 
-    def loglog(self):
-        log_filename = "../logs/test.log"
+    def loglog(self, log_filename):
         log_level = logging.DEBUG
         formatter = logging.Formatter("%(asctime)s [filename:%(filename)s] [line:%(lineno)2d] [funcName:%(funcName)s]"
                                       "[levelname:%(levelname)s] %(message)s")
-        handler = logging.handlers.RotatingFileHandler(log_filename, mode='a', maxBytes=10*1024*1024, backupCount=5)
+        handler = logging.handlers.RotatingFileHandler(log_filename, mode='a', encoding='utf-8', maxBytes=10*1024*1024, backupCount=5)
         handler.setFormatter(formatter)
-        logger = logging.getLogger()
+        logger = logging.getLogger(log_filename)
         logger.addHandler(handler)
         logger.setLevel(log_level)
         console_handle = logging.StreamHandler()

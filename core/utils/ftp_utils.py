@@ -8,6 +8,9 @@ Description:
     ftp工具类
 """
 import ftplib
+# from core.utils.logger_utils import LoggerUtils
+#
+# logger = LoggerUtils().loglog('../logs/ftputils.log')
 
 
 class FTPUtils:
@@ -37,7 +40,7 @@ class FTPUtils:
         try:
             ftp.mkd(file_dir)
         except Exception as e:
-            print(e)
+            e
         ftp.cwd(file_dir)
         ftp.storbinary("STOR " + filename, open(filename, "rb"))
         ftp.quit()

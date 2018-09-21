@@ -28,7 +28,7 @@ FTP_PASSWORD = const.get_value('ftp', 'password')
 FTP_DIR = const.get_value('ftp', 'ftpdir')
 
 def start():
-    logger = LoggerUtils().loglog()
+    logger = LoggerUtils().loglog('../logs/test.log')
     #测试redis_utils中的方法
     redis = RedisUtils(REDIS_HOST,REDIS_PORT)
     redis.set_str('hello','11111')
@@ -47,8 +47,12 @@ def start():
 
 
     #ftp测试
-    # ftp = FTPUtils(FTP_HOST, FTP_PORT, FTP_USERNAME, FTP_PASSWORD)
-    # os.chdir("d:/")
-    # ftp.upload_file('my.cnf.bak',FTP_DIR)
+    try:
+        ftp = FTPUtils(FTP_HOST, FTP_PORT, FTP_USERNAME, FTP_PASSWORD)
+        os.chdir("d:/")
+        ftp.upload_file('centos7_init.sh', FTP_DIR)
+    except Exception as e:
+        logger.info(e)
+    logger.info("哈哈")
     pass
 
