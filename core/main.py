@@ -17,6 +17,7 @@ from core.utils.csv_utils import CSV_Utils
 const = ConfigUtils('../conf/config.ini')
 REDIS_HOST = const.get_value('redis', 'host')
 REDIS_PORT = const.get_value('redis', 'port')
+REDIS_PASSWORD = const.get_value('redis', 'password')
 MYSQL_HOST = const.get_value('mysql', 'host')
 MYSQL_PORT = int(const.get_value('mysql', 'port'))
 MYSQL_USERNAME = const.get_value('mysql', 'username')
@@ -29,9 +30,10 @@ FTP_PASSWORD = const.get_value('ftp', 'password')
 FTP_DIR = const.get_value('ftp', 'ftpdir')
 
 def start():
+    """程序入口"""
     logger = LoggerUtils().loglog('../logs/test.log')
     #测试redis_utils中的方法
-    redis = RedisUtils(REDIS_HOST,REDIS_PORT)
+    redis = RedisUtils(REDIS_HOST, REDIS_PORT, REDIS_PASSWORD)
     redis.set_str('hello','11111')
     logger.info(redis.get_str('hello'))
     # a = redis.get_list('runoobkey')

@@ -12,16 +12,17 @@ import redis
 
 class RedisUtils:
 
-    def __init__(self, host, port):
+    def __init__(self, host, port, password):
         """
         :param host: redis ip
         :param port: redis port
         """
         self.host = host
         self.port = port
+        self.password = password
 
     def single_conn(self):
-        pool = redis.ConnectionPool(host=self.host, port=self.port)
+        pool = redis.ConnectionPool(host=self.host, port=self.port, password = self.password)
         r = redis.Redis(connection_pool=pool)
         return r
 
