@@ -3,7 +3,7 @@
 """
 Created on 2018/09/20
 @filename: ftp_utils.py
-@author: yanghang
+@author: sdhzdtwhm
 Description:
     ftp工具类
 """

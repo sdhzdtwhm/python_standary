@@ -3,7 +3,7 @@
 """
 Created on 2018/09/20
 @filename: config_utils.py
-@author: yanghang
+@author: sdhzdtwhm
 Description:
     1.读取config.ini文件中的配置项的value值
 """

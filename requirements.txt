@@ -1,9 +1,15 @@
 asn1crypto==0.24.0
+bcrypt==3.1.4
 cffi==1.11.5
 configobj==5.0.6
 cryptography==2.3.1
 idna==2.7
+paramiko==2.4.2
+pexpect==4.6.0
+ptyprocess==0.6.0
+pyasn1==0.4.4
 pycparser==2.19
 PyMySQL==0.9.2
+PyNaCl==1.2.1
 redis==2.10.6
 six==1.11.0

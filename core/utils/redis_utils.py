@@ -3,7 +3,7 @@
 """
 Created on 2018/09/20
 @filename: redis_utils.py
-@author: yanghang
+@author: sdhzdtwhm
 Description:
     1.redis 工具类
 """
